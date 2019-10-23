@@ -16,7 +16,8 @@ buildscript {
     }
 }
 plugins {
-    buildSrcVersions
+    id("com.louiscad.splitties").version("0.1.3")
+    id("de.fayard.refreshVersions").version("0.8.0")
     detekt
 }
 
@@ -59,8 +60,8 @@ tasks.register("androidTest") {
 }
 
 // Plugin documentation available at https://github.com/jmfayard/buildSrcVersions/issues/53
-buildSrcVersions {
-    indent = "    "
+refreshVersions {
+
 }
 
 detekt {
