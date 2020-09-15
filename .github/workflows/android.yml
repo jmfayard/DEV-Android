@@ -2,7 +2,7 @@
 # https://github.com/marketplace/actions/gradle-command
 name: Android unit tests
 on:
-  pull_request:
+  push:
     paths:
       - '!**.md'
       - '!**.adoc'
