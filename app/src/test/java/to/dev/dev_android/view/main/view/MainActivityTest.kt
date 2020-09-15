@@ -8,6 +8,8 @@ class MainActivityTest {
 
     @Test
     fun onCreate() {
+        val sum = 4
+        assertTrue(2+2 == sum)
     }
 
     @Test

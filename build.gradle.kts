@@ -78,3 +78,20 @@ detekt {
 tasks.named<Wrapper>("wrapper") {
     distributionType = Wrapper.DistributionType.ALL
 }
+tasks.register<Copy>("githubActionSetup") {
+    from("./.github")
+    include("google-services.json")
+    into("./app")
+    finalizedBy(":app:testDebugUnitTest")
+}
+tasks.register("githubAction") {
+    group = "custom"
+    dependsOn(":app:testDebugUnitTest")
+    description = """
+        GitHub Action is configured in
+            ./github/workflows/android.yml   
+        to run on each commit
+           $ ./gradlew githubAction
+        This task will run the unit tests     
+        """".trimIndent()
+}
